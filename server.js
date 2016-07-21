@@ -8,7 +8,18 @@ var cheerio = require('cheerio');
 var app = express();
 
 app.get('/scrape', function(req, res){
-  // All scraping magic happens in here
+
+  url = 'http://www.smbc-comics.com/';
+
+  request(url, function(err, response, html){
+    if(!error){
+      var $ = cheerio.load(html);
+      var secret_title;
+      var json = {"secret_title": ''};
+    }
+  });
+
+
 });
 
 app.listen('8081');
