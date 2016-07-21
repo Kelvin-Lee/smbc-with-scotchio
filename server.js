@@ -12,13 +12,22 @@ app.get('/scrape', function(req, res){
   url = 'http://www.smbc-comics.com/';
 
   request(url, function(err, response, html){
-    if(!error){
+
+    if(!err){
       var $ = cheerio.load(html);
       var secret_title;
       var json = {"secret_title": ''};
+
+      $('#cc-comic').filter(function(){
+        var data = $(this);
+        secret_title = data.attr('title');
+        json.secret_title = secret_title;
+      });      
     }
+
   });
 
+  res.send("Eyy");
 
 });
 
