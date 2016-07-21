@@ -8,5 +8,5 @@ Hopefully you already [npm](https://www.npmjs.org) installed on your computer. I
 `npm start`
 
 ## Notes
-- From my knowledge, it seems **excessive to run a server** in order to get the information I want. On the other hand, I wasn't having much luck in my Casperjs version of the scraper.
+- From my knowledge, it seems **excessive to run a server** in order to get the information I want. ~~On the other hand, I wasn't having much luck in my Casperjs version of the scraper.~~
   - After some success in my [smbc-with-casperjs] (https://github.com/Kelvin-Lee/smbc-with-casperjs) repository, I am **more convinced** that the server is overkill in terms of overhead and extra code written, though still not conclusively sure.
