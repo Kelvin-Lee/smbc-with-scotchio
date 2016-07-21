@@ -9,22 +9,23 @@ var app = express();
 
 app.get('/scrape', function(req, res){
 
-  url = 'http://www.smbc-comics.com/';
+  var url = 'http://www.smbc-comics.com/';
 
   request(url, function(err, response, html){
-
     if(!err){
       var $ = cheerio.load(html);
       var secret_title;
-      var json = {"secret_title": ''};
+      var json = {"title": ''};
 
       $('#cc-comic').filter(function(){
         var data = $(this);
-        secret_title = data.attr('title');
-        json.secret_title = secret_title;
+        json.title = data.attr('title');
       });      
-    }
 
+      fs.writeFile('smbc.json', JSON.stringify(json, null, 4), function(err){
+        console.log("File successfully written to smbc.json");
+      });
+    }
   });
 
   res.send("Eyy");
